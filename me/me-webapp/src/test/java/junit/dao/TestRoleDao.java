@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import net.yingzhuo.me.dao.RoleDao;
-import net.yingzhuo.me.domain.Role;
+import net.grosso.me.dao.RoleDao;
+import net.grosso.me.domain.Role;
 
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;

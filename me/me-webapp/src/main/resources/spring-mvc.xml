@@ -16,7 +16,7 @@
 		http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
-	<context:component-scan base-package="net.yingzhuo.me.controller" />
+	<context:component-scan base-package="net.grosso.me.controller" />
 
 	<mvc:annotation-driven conversion-service="conversion-service" validator="validator">
 		<mvc:message-converters>
@@ -73,7 +73,7 @@
 		<property name="exceptionMappings">
 			<props>
 				<prop key="org.springframework.security.access.AccessDeniedException">error/access-denied</prop>
-				<prop key="net.yingzhuo.me.exception.NonEmptyGroupException">error/non-empty-group</prop>
+				<prop key="net.grosso.me.exception.NonEmptyGroupException">error/non-empty-group</prop>
 			</props>
 		</property>
 		<property name="warnLogCategory" value="以下为警告信息" />
@@ -82,7 +82,7 @@
 	</bean>
 
 	<mvc:interceptors>
-		<bean class="net.yingzhuo.me.interceptor.HeaderInformationSetterInterceptor">
+		<bean class="net.grosso.me.interceptor.HeaderInformationSetterInterceptor">
 			<property name="dateFormatPattern" value="yyyy年MM月dd日" />
 		</bean>
 		<bean class="org.springframework.orm.jpa.support.OpenEntityManagerInViewInterceptor">

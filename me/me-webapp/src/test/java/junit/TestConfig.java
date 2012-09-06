@@ -1,6 +1,6 @@
 package junit;
 
-import net.yingzhuo.me.util.uuid.UUIDUtils;
+import net.grosso.me.util.uuid.UUIDUtils;
 
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Value;

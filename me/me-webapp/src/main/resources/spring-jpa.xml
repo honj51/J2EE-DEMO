@@ -40,7 +40,7 @@
 
 	<tx:annotation-driven />
 
-	<jpa:repositories base-package="net.yingzhuo.me.dao"
+	<jpa:repositories base-package="net.grosso.me.dao"
 		entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager">
 	</jpa:repositories>

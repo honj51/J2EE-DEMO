@@ -122,7 +122,7 @@
 	核心过滤器成员之一
 	监控一个URL，验证用户提交的用户名和密码
 	============================================================================-->
-	<bean id="validatedUsernamePasswordProcessingFilter" class="net.yingzhuo.me.security.ValidatedUsernamePasswordAuthenticationFilter">
+	<bean id="validatedUsernamePasswordProcessingFilter" class="net.grosso.me.security.ValidatedUsernamePasswordAuthenticationFilter">
 		<property name="filterProcessesUrl" value="/common/login-process"/>
 		<property name="usernameParameter" value="username"/>
 		<property name="passwordParameter" value="password"/>
@@ -256,7 +256,7 @@
 		<property name="expressionHandler" ref="expressionHandler"/>
 	</bean>
 	
-	<bean id="userDetailsService" class="net.yingzhuo.me.security.UserDetailsServiceJpaImpl">
+	<bean id="userDetailsService" class="net.grosso.me.security.UserDetailsServiceJpaImpl">
 		<property name="entityManagerFactory" ref="entityManagerFactory" />
 	</bean>
 

@@ -4,8 +4,8 @@ import java.util.List;
 
 import javax.annotation.Resource;
 
-import net.yingzhuo.me.dao.GroupDao;
-import net.yingzhuo.me.domain.Group;
+import net.grosso.me.dao.GroupDao;
+import net.grosso.me.domain.Group;
 
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;

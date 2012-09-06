@@ -5,10 +5,10 @@
 
 	<persistence-unit name="me" transaction-type="RESOURCE_LOCAL">
 		<provider>org.hibernate.ejb.HibernatePersistence</provider>
-		<class>net.yingzhuo.me.domain.Contact</class>
-		<class>net.yingzhuo.me.domain.Group</class>
-		<class>net.yingzhuo.me.domain.Role</class>
-		<class>net.yingzhuo.me.domain.User</class>
+		<class>net.grosso.me.domain.Contact</class>
+		<class>net.grosso.me.domain.Group</class>
+		<class>net.grosso.me.domain.Role</class>
+		<class>net.grosso.me.domain.User</class>
 		<properties>
 			<property name="hibernate.dialect" value="org.hibernate.dialect.MySQL5Dialect" />
 			<property name="hibernate.max_fetch_depth" value="3" />

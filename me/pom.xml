@@ -2,33 +2,27 @@
 	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
 	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
 	<modelVersion>4.0.0</modelVersion>
-	<groupId>net.yingzhuo</groupId>
+	<groupId>net.grosso</groupId>
 	<artifactId>me</artifactId>
 	<version>1.0.0</version>
 	<packaging>pom</packaging>
 
-	<developers>
-		<developer>
-			<name>应卓</name>
-			<email>yingzhor@163.com</email>
-			<url>http://yingzhuo.iteye.com</url>
-		</developer>
-	</developers>
+	
 
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
-				<groupId>net.yingzhuo</groupId>
+				<groupId>net.grosso</groupId>
 				<artifactId>me-util</artifactId>
 				<version>1.0.0</version>
 			</dependency>
 			<dependency>
-				<groupId>net.yingzhuo</groupId>
+				<groupId>net.grosso</groupId>
 				<artifactId>me-framework</artifactId>
 				<version>1.0.0</version>
 			</dependency>
 			<dependency>
-				<groupId>net.yingzhuo</groupId>
+				<groupId>net.grosso</groupId>
 				<artifactId>me-webapp</artifactId>
 				<version>1.0.0</version>
 			</dependency>			

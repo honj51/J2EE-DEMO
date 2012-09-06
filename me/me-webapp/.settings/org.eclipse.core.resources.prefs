@@ -1,8 +1,8 @@
 eclipse.preferences.version=1
 encoding//src/main/java=UTF-8
-encoding//src/main/java/net/yingzhuo/me/controller/CommonUtils.java=GBK
-encoding//src/main/java/net/yingzhuo/me/i18n/jsr303.properties=UTF-8
-encoding//src/main/java/net/yingzhuo/me/me.properties=UTF-8
+encoding//src/main/java/net/grosso/me/controller/CommonUtils.java=UTF-8
+encoding//src/main/java/net/grosso/me/i18n/jsr303.properties=UTF-8
+encoding//src/main/java/net/grosso/me/me.properties=UTF-8
 encoding//src/main/resources=UTF-8
 encoding//src/main/webapp/WEB-INF/js/me.js=UTF-8
 encoding//src/main/webapp/WEB-INF/jsp/tiles/sidebar.jsp=UTF-8

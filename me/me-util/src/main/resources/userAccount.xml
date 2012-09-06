@@ -4,7 +4,7 @@
    "http://ibatis.apache.org/dtd/sql-map-2.dtd">
 
 <sqlMap>
-	<select id="getAllUsers" resultClass="net.yingzhuo.me.util.ibatis.Account"
+	<select id="getAllUsers" resultClass="net.grosso.me.util.ibatis.Account"
 		parameterClass="string">		
 		SELECT * FROM USER_ACCOUNT WHERE GROUPNAME=#groupName#
 	</select>

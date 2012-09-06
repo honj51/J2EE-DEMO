@@ -2,7 +2,7 @@ package junit.dao;
 
 import javax.annotation.Resource;
 
-import net.yingzhuo.me.dao.ContactDao;
+import net.grosso.me.dao.ContactDao;
 
 import org.junit.Test;
 import org.springframework.test.context.ContextConfiguration;
