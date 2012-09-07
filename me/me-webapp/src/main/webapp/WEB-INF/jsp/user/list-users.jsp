@@ -42,6 +42,7 @@
 						<c:if test="${!user.enabled}">
 							<a href="user/unlock/${user.id}/current-page/${page.number}" title="启用"><img src="images/icons2/key_16.png"/></a>
 						</c:if>
+						<a href="user/edit-user/${user.id}" >edit</a>
 					</td>
 					<td></td>
 				</tr>

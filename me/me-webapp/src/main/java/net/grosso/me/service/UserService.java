@@ -1,5 +1,7 @@
 package net.grosso.me.service;
 
+import java.sql.SQLException;
+
 import net.grosso.me.domain.User;
 
 import org.springframework.data.domain.Page;
@@ -18,6 +20,9 @@ public interface UserService {
 	
 	@Transactional
 	public void save(User user);
+	
+	@Transactional
+	public void update(User user)throws SQLException;
 
 	public User findUserById(Integer id);
 

@@ -197,7 +197,7 @@ public class User implements UserDetails, Serializable {
 	
 	// ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 	public static enum Lock {
-		LOCKED, NON_LOCKED
+		LOCKED, NON_LOCKED;
 	}
 	
 	public static enum Gender {

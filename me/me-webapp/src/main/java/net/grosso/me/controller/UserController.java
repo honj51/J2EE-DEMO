@@ -1,12 +1,12 @@
 package net.grosso.me.controller;
 
+import java.sql.SQLException;
 import java.util.Locale;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import net.grosso.me.domain.User;
-import net.grosso.me.form.AddUserForm;
 import net.grosso.me.form.ChangePasswordForm;
 import net.grosso.me.form.UserInformationForm;
 import net.grosso.me.pageable.SimplePageableImpl;
@@ -159,5 +159,25 @@ public class UserController {
 		user.setPassword(DigestUtils.md5Hex(user.getPassword()));
 		userService.save(user);
 		return "redirect:/user/my-information";
+	}
+	
+	@RequestMapping(value = "/edit-user/{userId}", method = { RequestMethod.GET })
+	public ModelAndView EditUser(@PathVariable("userId") int userId,@ModelAttribute("editUser") User editUser) {
+		User user= userService.findUserById(userId);
+		ModelAndView mav = new ModelAndView("#edit-user");
+		mav.addObject("user", user);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/edit-user", method = { RequestMethod.POST })
+	public String EditUser(@ModelAttribute("editUser") User user,
+			BindingResult bindingResult) {
+		user.setPassword(DigestUtils.md5Hex(user.getPassword()));
+		try {
+			userService.update(user);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "redirect:/user/list-users/1";
 	}
 }

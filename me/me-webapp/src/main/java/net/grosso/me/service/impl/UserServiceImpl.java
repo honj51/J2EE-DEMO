@@ -1,10 +1,14 @@
 package net.grosso.me.service.impl;
 
+import java.sql.SQLException;
+
 import javax.annotation.Resource;
 
+import net.grosso.me.dao.IbatisUserDao;
 import net.grosso.me.dao.UserDao;
 import net.grosso.me.domain.Role;
 import net.grosso.me.domain.User;
+
 import net.grosso.me.service.UserService;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -21,6 +25,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Resource
 	private UserDao userDao;
+	
+	private IbatisUserDao ibatisUserDao =new IbatisUserDao();
+
 
 	@Override
 	public void changeInfomations(User user) {
@@ -115,6 +122,11 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void save(User user) {
 		userDao.save(user);	
+	}
+
+	@Override
+	public void update(User user) throws SQLException {
+		ibatisUserDao.update(user);		
 	}
 	
 

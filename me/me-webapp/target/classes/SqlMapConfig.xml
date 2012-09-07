@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE sqlMapConfig PUBLIC "-//ibatis.apache.org//DTD SQL Map Config 2.0//EN"
+    "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
+
+<sqlMapConfig>
+<properties resource="SqlMapConfig.properties" />
+  <transactionManager type="JDBC">
+    <dataSource type="SIMPLE">
+      <property value="${Driver}" name="JDBC.Driver"/>
+      <property value="${ConnectionURL}" name="JDBC.ConnectionURL"/>
+      <property value="${Username}" name="JDBC.Username"/>
+      <property value="${Password}" name="JDBC.Password"/>
+    </dataSource>
+  </transactionManager>
+
+  <sqlMap resource="user.xml"/>
+</sqlMapConfig>
