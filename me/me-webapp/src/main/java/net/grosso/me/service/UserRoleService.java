@@ -19,6 +19,9 @@ public interface UserRoleService {
 	
 	@Transactional
 	public void save(UserRole userRole) throws SQLException;
+	
+	@Transactional
+	public void delete(UserRole userRole) throws SQLException;
 
 	
 }

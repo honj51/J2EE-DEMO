@@ -35,7 +35,7 @@
 					<th>userName</th>
 					<th>roleId</th>
 					<th>roleName</th>
-					<th></th>
+					<th>操作</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -45,7 +45,8 @@
 					<td>${userRole.userName}</td>
 					<td>${userRole.roleId}</td>
 					<td>${userRole.roleName }</td>				
-					<td></td>
+					<td>	
+						| <a href="user/delete-user-role/${userRole.userId}/${userRole.roleId}">delete</a> |</td>
 				</tr>
 				</c:forEach>
 				</tbody>

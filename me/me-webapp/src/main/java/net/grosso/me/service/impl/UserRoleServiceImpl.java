@@ -38,6 +38,11 @@ public class UserRoleServiceImpl implements UserRoleService {
 	public void save(UserRole userRole) throws SQLException {	
 		ibatisUserRoleDao.save(userRole);
 	}
+	
+	@Override
+	public void delete(UserRole userRole) throws SQLException {	
+		ibatisUserRoleDao.delete(userRole);
+	}
 
 
 }

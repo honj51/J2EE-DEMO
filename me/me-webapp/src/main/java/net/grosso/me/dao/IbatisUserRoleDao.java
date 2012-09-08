@@ -39,4 +39,15 @@ public class IbatisUserRoleDao {
 		}
 	
 	}
+	
+	public void delete(UserRole userRole) throws SQLException {
+		SqlMapClient sqlMap;
+		try {
+			sqlMap = IbatisSqlMapClitentUtil.getSqlMapClient();
+			sqlMap.delete("deleteUserRoleById",userRole);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
+	}
 }

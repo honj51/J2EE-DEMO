@@ -229,4 +229,17 @@ public class UserController {
 		}
 		return "redirect:/user/list-roles";
 	}
+	
+	@RequestMapping(value = "/delete-user-role/{userId}/{roleId}", method = { RequestMethod.GET })
+	public String DeleteUserRole(@PathVariable("userId") int userId,@PathVariable("roleId") int roleId) {
+		UserRole userRole =new UserRole();
+		userRole.setRoleId(roleId);
+		userRole.setUserId(userId);
+		try {
+			userRoleService.delete(userRole);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "redirect:/user/list-roles";
+	}
 }
