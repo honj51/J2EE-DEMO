@@ -7,6 +7,7 @@ import java.util.Locale;
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
+import net.grosso.me.domain.Role;
 import net.grosso.me.domain.User;
 import net.grosso.me.domain.UserRole;
 import net.grosso.me.form.ChangePasswordForm;
@@ -206,5 +207,26 @@ public class UserController {
 		ModelAndView mav = new ModelAndView("#list-roles");
 		mav.addObject("userRoleList",userRoleList);
 		return mav;
+	}
+	
+	@RequestMapping(value = "/add-user-role",  method = { RequestMethod.GET })
+	public ModelAndView AddUserRole(@ModelAttribute("userRole") UserRole userRole) {
+		List<User> userList = userService.findAll();
+		List<Role> roleList = userService.findAllRoles();
+		ModelAndView mav = new ModelAndView("#add-user-role");
+		mav.addObject("userList",userList);
+		mav.addObject("roleList",roleList);
+		return mav;
+	}
+	
+	@RequestMapping(value = "/add-user-role", method = { RequestMethod.POST })
+	public String AddUserRole(@ModelAttribute("userRole") UserRole userRole,
+			BindingResult bindingResult) {
+		try {
+			userRoleService.save(userRole);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return "redirect:/user/list-roles";
 	}
 }

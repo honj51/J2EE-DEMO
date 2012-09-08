@@ -9,7 +9,7 @@
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("#system-setting").addClass("current");
-		$("#add-user").addClass("current");
+		$("##list-roles").addClass("current");
 		$("#system-setting").click();
 	});
 </script>
@@ -22,7 +22,7 @@
 				<h3>&nbsp;</h3>
 				<div class="clear"></div>
 			</div>
-			<form:form action="" method="post" modelAttribute="addUserForm">
+			<form:form action="user/add-user-role" method="post" modelAttribute="userRole">
 			<c:if test="${hasErrors}">
 			<div class="notification error png_bg">
 				<a class="close" style="cursor: pointer;"><img src="images/icons/cross_grey_small.png"/></a>
@@ -35,7 +35,7 @@
 				<tbody>
 				<tr>
 					<td>username</td>
-					<td><form:input path="username" class="text-input small-input" /></td>
+					<td><form:select path="userId" items="${userList}" itemValue="id" itemLabel="username" class="text-input small-input"/></td>
 					<td></td>
 					<td></td>
 					<td></td>
@@ -44,55 +44,15 @@
 					<td></td>
 				</tr>
 				<tr>
-					<td>password</td>
-					<td><form:password path="password" cssClass="text-input small-input"/></td>
+					<td>rolename</td>
+					<td><form:select path="roleId" items="${roleList}" itemValue="id" itemLabel="name" class="text-input small-input"/> </td>
 					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
 					<td></td>
-				</tr>
-				<tr>
-					<td>firstName</td>
-					<td><form:input path="name.firstName" class="text-input small-input" /></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>lastName</td>
-					<td><form:input path="name.lastName" class="text-input small-input" /></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>gender(MALE, FEMALE)</td>
-					<td><form:input path="gender" class="text-input small-input" /></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
-				<tr>
-					<td>lock(LOCKED, NON_LOCKED)</td>
-					<td><form:input path="lock" class="text-input small-input" /></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-					<td></td>
-				</tr>
+				</tr>		
 				</tbody>
 			</table>
 			<p>

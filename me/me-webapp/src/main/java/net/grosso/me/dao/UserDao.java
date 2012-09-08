@@ -1,5 +1,7 @@
 package net.grosso.me.dao;
 
+import java.util.List;
+
 import net.grosso.me.domain.User;
 
 import org.springframework.data.domain.Page;
@@ -11,6 +13,8 @@ public interface UserDao extends Repository<User, Integer> {
 	public long count();
 
 	public User findOne(Integer id);
+	
+	public List<User> findAll();
 
 	public User findByUsername(String username);
 

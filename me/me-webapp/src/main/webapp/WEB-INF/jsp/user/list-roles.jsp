@@ -14,7 +14,7 @@
 <div id="main-content">
 	<ul class="shortcut-buttons-set">
 		<li>
-			<a class="shortcut-button" href="user/list-roles">
+			<a class="shortcut-button" href="user/add-user-role">
 				<span>
 					<img src="images/icons/pencil_48.png"/><br/>分配角色
 				</span>

@@ -34,5 +34,10 @@ public class UserRoleServiceImpl implements UserRoleService {
 		return ibatisUserRoleDao.getAllUserRoles();
 	}
 
+	@Override
+	public void save(UserRole userRole) throws SQLException {	
+		ibatisUserRoleDao.save(userRole);
+	}
+
 
 }

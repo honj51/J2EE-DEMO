@@ -1,10 +1,12 @@
 package net.grosso.me.service.impl;
 
 import java.sql.SQLException;
+import java.util.List;
 
 import javax.annotation.Resource;
 
 import net.grosso.me.dao.IbatisUserDao;
+import net.grosso.me.dao.RoleDao;
 import net.grosso.me.dao.UserDao;
 import net.grosso.me.domain.Role;
 import net.grosso.me.domain.User;
@@ -25,6 +27,9 @@ public class UserServiceImpl implements UserService {
 	
 	@Resource
 	private UserDao userDao;
+	
+	@Resource
+	private RoleDao roleDao;
 	
 	private IbatisUserDao ibatisUserDao =new IbatisUserDao();
 
@@ -139,6 +144,17 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void update(User user) throws SQLException {
 		ibatisUserDao.update(user);		
+	}
+
+	@Override
+	public List<User> findAll() {
+		
+		return userDao.findAll();
+	}
+
+	@Override
+	public List<Role> findAllRoles() {
+		return roleDao.findAll();
 	}
 	
 

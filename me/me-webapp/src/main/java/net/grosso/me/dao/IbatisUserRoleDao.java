@@ -1,5 +1,6 @@
 package net.grosso.me.dao;
 
+import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
@@ -26,5 +27,16 @@ public class IbatisUserRoleDao {
 		}
 
 		return useRoleList;
+	}
+	
+	public void save(UserRole userRole) throws SQLException {
+		SqlMapClient sqlMap;
+		try {
+			sqlMap = IbatisSqlMapClitentUtil.getSqlMapClient();
+			sqlMap.insert("insertUserRole", userRole);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	
 	}
 }

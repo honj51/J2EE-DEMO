@@ -16,6 +16,9 @@ public interface UserRoleService {
 
 	@Transactional
 	public List<UserRole> getAllUserRoles() throws SQLException;
+	
+	@Transactional
+	public void save(UserRole userRole) throws SQLException;
 
 	
 }

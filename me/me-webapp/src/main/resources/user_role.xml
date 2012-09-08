@@ -13,4 +13,13 @@
 	<select id="getAllUserRoles" resultMap="UserRoleResult">
 		SELECT ur._user_id,u._username,ur._role_id,r._name FROM tbl_user u,tbl_user_role ur,tbl_role r WHERE u._id=ur._user_id and r._id=ur._role_id 
 	</select>
+	<!--	外联参数映射	-->	
+	<parameterMap  id="parameterUserRoleMap" class="net.grosso.me.domain.UserRole">
+		<parameter property="userId" jdbcType="INT"/>
+		<parameter property="roleId" jdbcType="INT"/>
+	</parameterMap>
+	<insert id="insertUserRole" parameterMap="parameterUserRoleMap">
+ 	 insert into tbl_user_role(_user_id, _role_id)
+          values(?, ?)
+	 </insert>
 </sqlMap>

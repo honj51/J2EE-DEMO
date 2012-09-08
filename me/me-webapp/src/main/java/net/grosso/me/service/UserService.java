@@ -1,7 +1,9 @@
 package net.grosso.me.service;
 
 import java.sql.SQLException;
+import java.util.List;
 
+import net.grosso.me.domain.Role;
 import net.grosso.me.domain.User;
 
 import org.springframework.data.domain.Page;
@@ -28,6 +30,10 @@ public interface UserService {
 	public int deleteUserAndRole(int userId);
 
 	public User findUserById(Integer id);
+	
+	public List<User> findAll();
+	
+	public List<Role> findAllRoles();
 
 	public boolean exists(Integer id, String password);
 
