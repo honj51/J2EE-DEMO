@@ -1,16 +1,19 @@
 package net.grosso.me.controller;
 
 import java.sql.SQLException;
+import java.util.List;
 import java.util.Locale;
 
 import javax.annotation.Resource;
 import javax.validation.Valid;
 
 import net.grosso.me.domain.User;
+import net.grosso.me.domain.UserRole;
 import net.grosso.me.form.ChangePasswordForm;
 import net.grosso.me.form.UserInformationForm;
 import net.grosso.me.pageable.SimplePageableImpl;
 import net.grosso.me.security.CurrentUserHolder;
+import net.grosso.me.service.UserRoleService;
 import net.grosso.me.service.UserService;
 
 import org.apache.commons.codec.digest.DigestUtils;
@@ -32,6 +35,10 @@ public class UserController {
 
 	@Resource
 	private UserService userService;
+
+	@Resource
+	private UserRoleService userRoleService;
+	
 	@Resource
 	private MessageSource messageSource;
 
@@ -149,7 +156,7 @@ public class UserController {
 	}
 
 	@RequestMapping(value = "/add-user", method = { RequestMethod.GET })
-	public String AddUser(@ModelAttribute("addUserForm") User user) {	
+	public String AddUser(@ModelAttribute("addUserForm") User user) {
 		return "#add-user";
 	}
 
@@ -158,17 +165,18 @@ public class UserController {
 			BindingResult bindingResult) {
 		user.setPassword(DigestUtils.md5Hex(user.getPassword()));
 		userService.save(user);
-		return "redirect:/user/my-information";
+		return "redirect:/user/list-users/1";
 	}
-	
+
 	@RequestMapping(value = "/edit-user/{userId}", method = { RequestMethod.GET })
-	public ModelAndView EditUser(@PathVariable("userId") int userId,@ModelAttribute("editUser") User editUser) {
-		User user= userService.findUserById(userId);
+	public ModelAndView EditUser(@PathVariable("userId") int userId,
+			@ModelAttribute("editUser") User editUser) {
+		User user = userService.findUserById(userId);
 		ModelAndView mav = new ModelAndView("#edit-user");
 		mav.addObject("user", user);
 		return mav;
 	}
-	
+
 	@RequestMapping(value = "/edit-user", method = { RequestMethod.POST })
 	public String EditUser(@ModelAttribute("editUser") User user,
 			BindingResult bindingResult) {
@@ -179,5 +187,24 @@ public class UserController {
 			e.printStackTrace();
 		}
 		return "redirect:/user/list-users/1";
+	}
+
+	@RequestMapping(value = "/delete-user/{userId}", method = { RequestMethod.GET })
+	public String DeleteUser(@PathVariable("userId") int userId) {
+		userService.deleteUserAndRole(userId);
+		return "redirect:/user/list-users/1";
+	}
+
+	@RequestMapping(value = "/list-roles", method = { RequestMethod.GET })
+	public ModelAndView listRoles() {
+		List<UserRole> userRoleList=null;
+		try {
+			userRoleList=userRoleService.getAllUserRoles();
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		ModelAndView mav = new ModelAndView("#list-roles");
+		mav.addObject("userRoleList",userRoleList);
+		return mav;
 	}
 }

@@ -1,25 +1,44 @@
 package net.grosso.me.dao;
 
-import java.io.IOException;
 import java.sql.SQLException;
-
-import com.ibatis.sqlmap.client.SqlMapClient;
 
 import net.grosso.me.domain.User;
 import net.grosso.me.ibatis.IbatisSqlMapClitentUtil;
 
+
+
+import com.ibatis.sqlmap.client.SqlMapClient;
+
+
+
 public class IbatisUserDao {
-	
-	public User update(User user) throws SQLException{
-		
+
+	public User update(User user) throws SQLException {
+
 		try {
-			SqlMapClient sqlMap=IbatisSqlMapClitentUtil.getSqlMapClient();
+			SqlMapClient sqlMap = IbatisSqlMapClitentUtil.getSqlMapClient();
 			sqlMap.update("updateUser", user);
-		} catch (IOException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		
-		return user;	
+
+		return user;
+	}
+
+	public int deleteUserAndRole(int userId) throws SQLException {
+
+		try {
+			SqlMapClient sqlMap = IbatisSqlMapClitentUtil.getSqlMapClient();
+			//delete user and related role.
+			sqlMap.startBatch();
+			sqlMap.delete("deleteRoleByUserId",userId);
+			sqlMap.delete("deleteUserById",userId);
+			sqlMap.executeBatch();
+		} catch (Exception e) {		
+			e.printStackTrace();
+			return 0;
+		}
+		return 1;
 	}
 
 }

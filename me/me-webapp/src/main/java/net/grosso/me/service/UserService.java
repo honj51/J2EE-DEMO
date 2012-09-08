@@ -23,6 +23,9 @@ public interface UserService {
 	
 	@Transactional
 	public void update(User user)throws SQLException;
+	
+	@Transactional
+	public int deleteUserAndRole(int userId);
 
 	public User findUserById(Integer id);
 

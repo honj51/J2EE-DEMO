@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<resultMap id="UserRoleResult" class="net.grosso.me.domain.UserRole">
+		<result property="userId" column="_user_id" />
+		<result property="userName" column="_username" />
+		<result property="roleId" column="_role_id" />
+		<result property="roleName" column="_name" />
+	</resultMap>
+	<select id="getAllUserRoles" resultMap="UserRoleResult">
+		SELECT ur._user_id,u._username,ur._role_id,r._name FROM tbl_user u,tbl_user_role ur,tbl_role r WHERE u._id=ur._user_id and r._id=ur._role_id 
+	</select>
+</sqlMap>

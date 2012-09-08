@@ -49,5 +49,10 @@
 		<put-attribute name="body" value="/WEB-INF/jsp/user/edit-user.jsp" />
 	</definition>
 	
+		<definition name="#list-roles" extends="base">
+		<put-attribute name="body" value="/WEB-INF/jsp/user/list-roles.jsp" />
+	</definition>
+	
+	
 
 </tiles-definitions>

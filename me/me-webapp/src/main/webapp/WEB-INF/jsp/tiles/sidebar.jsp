@@ -41,8 +41,9 @@
 			<li><a id="system-setting" href="#" class="nav-top-item">系统管理</a>
 				<ul>
 					<li>
-						<a id="list-users" href="user/list-users/1">禁用账户</a>
+						<a id="list-users" href="user/list-users/1">账户列表</a>
 						<a id="add-user" href="user/add-user">增加账户</a>
+						<a id="list-roles" href="user/list-roles">角色分配列表</a>
 					</li>
 				</ul>
 			</li>

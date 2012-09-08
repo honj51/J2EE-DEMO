@@ -55,6 +55,18 @@ public class UserServiceImpl implements UserService {
 	}
 
 	@Override
+	public int  deleteUserAndRole(int userId) {
+		int result=0;
+		try {
+			result=	ibatisUserDao.deleteUserAndRole(userId);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return result;
+		
+	}
+
+	@Override
 	public User findUserById(Integer id) {
 		return userDao.findOne(id);
 	}
