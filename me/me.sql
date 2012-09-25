@@ -42,7 +42,7 @@ CREATE TABLE `tbl_contact` (
 -- ----------------------------
 -- Records of tbl_contact
 -- ----------------------------
-INSERT INTO `tbl_contact` VALUES ('1', '应', '卓', 'zhuoying@wicresoft.com', 'yingzhor@163.com', null, null, '138-1664-4379', null, null, '1', '1');
+INSERT INTO `tbl_contact` VALUES ('1', '林', '锋', 'grossofans@gmail.com', 'grossofans@gmail.com', null, null, '182-2502-3233', null, null, '1', '1');
 
 -- ----------------------------
 -- Table structure for `tbl_email`
@@ -60,8 +60,8 @@ CREATE TABLE `tbl_email` (
 -- ----------------------------
 -- Records of tbl_email
 -- ----------------------------
-INSERT INTO `tbl_email` VALUES ('1', 'yingzhor@163.com', '0');
-INSERT INTO `tbl_email` VALUES ('1', 'yingzhor@gmail.com', '1');
+INSERT INTO `tbl_email` VALUES ('1', 'grossofans@gmail.com', '0');
+INSERT INTO `tbl_email` VALUES ('1', '240845339@qq.com', '1');
 
 -- ----------------------------
 -- Table structure for `tbl_group`
@@ -81,7 +81,7 @@ CREATE TABLE `tbl_group` (
 -- Records of tbl_group
 -- ----------------------------
 INSERT INTO `tbl_group` VALUES ('1', '朋友', null, '1');
-INSERT INTO `tbl_group` VALUES ('2', '炮友', null, '1');
+INSERT INTO `tbl_group` VALUES ('2', '好友', null, '1');
 INSERT INTO `tbl_group` VALUES ('3', '亲人', null, '1');
 
 -- ----------------------------
@@ -120,8 +120,8 @@ CREATE TABLE `tbl_user` (
 -- ----------------------------
 -- Records of tbl_user
 -- ----------------------------
-INSERT INTO `tbl_user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '应', '卓', 'NON_LOCKED', 'MALE');
-INSERT INTO `tbl_user` VALUES ('2', 'yingzhor', 'ae074a5692dfb7c26aae5147e52ceb40', '张', '三丰', 'NON_LOCKED', 'MALE');
+INSERT INTO `tbl_user` VALUES ('1', 'admin', '21232f297a57a5a743894a0e4a801fc3', '林', '锋', 'NON_LOCKED', 'MALE');
+INSERT INTO `tbl_user` VALUES ('2', 'zhanshang', '21232f297a57a5a743894a0e4a801fc3', '张', '三', 'NON_LOCKED', 'MALE');
 
 -- ----------------------------
 -- Table structure for `tbl_user_role`
