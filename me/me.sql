@@ -61,7 +61,7 @@ CREATE TABLE `tbl_email` (
 -- Records of tbl_email
 -- ----------------------------
 INSERT INTO `tbl_email` VALUES ('1', 'grossofans@gmail.com', '0');
-INSERT INTO `tbl_email` VALUES ('1', '240845339@qq.com', '1');
+INSERT INTO `tbl_email` VALUES ('1', 'grossofans@gmail.com', '1');
 
 -- ----------------------------
 -- Table structure for `tbl_group`
@@ -81,7 +81,7 @@ CREATE TABLE `tbl_group` (
 -- Records of tbl_group
 -- ----------------------------
 INSERT INTO `tbl_group` VALUES ('1', '朋友', null, '1');
-INSERT INTO `tbl_group` VALUES ('2', '好友', null, '1');
+INSERT INTO `tbl_group` VALUES ('2', '友人', null, '1');
 INSERT INTO `tbl_group` VALUES ('3', '亲人', null, '1');
 
 -- ----------------------------
