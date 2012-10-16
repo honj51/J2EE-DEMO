@@ -22,4 +22,4 @@ Plan List
 2012.11 Add CXF Feature.
 
 
-2012.11 Add Log Info Feature.
+2012.12 Add Log Info Feature.
