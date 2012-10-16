@@ -13,7 +13,13 @@ Ibatis 2
 Hibernate and Hibernate-Validator JSR303
 
 
-Plan
-2012.10 add quartz feature.
+Plan List
 
 
+2012.10 Add Quartz Feature.
+
+
+2012.11 Add CXF Feature.
+
+
+2012.11 Add Log Records Feature.
