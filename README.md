@@ -13,6 +13,10 @@ Ibatis 2
 Hibernate and Hibernate-Validator JSR303
 
 
+URL:http://localhost:8080/me-webapp
+
+name:admin password:admin
+
 Plan List
 
 
