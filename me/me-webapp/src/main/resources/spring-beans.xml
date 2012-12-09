@@ -39,9 +39,6 @@
 		</property>
 	</bean>
 	
-	<bean id="jobDetail" class="org.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean"> 
-		<property name="targetObject" ref="simpleService" /> 
-		<property name="targetMethod" value="testMethod" /> 
-	</bean>	
+
 
 </beans>
