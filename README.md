@@ -4,7 +4,7 @@ J2EE-DEMO
 Some open-source demo
 
 
-including 
+Including 
 Spring 3.1.1 
 SpringMVC 3.1.1 
 SpringSecurity 3.1.0 
@@ -20,10 +20,9 @@ name:admin password:admin
 Plan List
 
 
-2012.10 Add Quartz Feature.
+Add Quartz Feature.
 
 
-2012.11 Add CXF Feature.
+Add CXF Feature.
 
 
-2012.12 Add Log Info Feature.
