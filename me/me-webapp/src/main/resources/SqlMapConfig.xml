@@ -4,13 +4,13 @@
     "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
 
 <sqlMapConfig>
-<properties resource="SqlMapConfig.properties" />
+<properties resource="jdbc.properties" />
   <transactionManager type="JDBC">
     <dataSource type="SIMPLE">
-      <property value="${Driver}" name="JDBC.Driver"/>
-      <property value="${ConnectionURL}" name="JDBC.ConnectionURL"/>
-      <property value="${Username}" name="JDBC.Username"/>
-      <property value="${Password}" name="JDBC.Password"/>
+      <property value="${jdbc.driverClassName}" name="JDBC.Driver"/>
+      <property value="${jdbc.url}" name="JDBC.ConnectionURL"/>
+      <property value="${jdbc.username}" name="JDBC.Username"/>
+      <property value="${jdbc.password}" name="JDBC.Password"/>
     </dataSource>
   </transactionManager>
 
