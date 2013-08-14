@@ -86,12 +86,16 @@
 	</bean>
 	<bean id="jobDetail"
 		class="frameworkx.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
-		<property name="targetObject" ref="simpleService" />
-		<property name="targetMethod" value="testMethod" />
+		<property name="targetObject" ref="unLockService" />
+		<property name="targetMethod" value="unLockTheUser" />
 		<property name="shouldRecover" value="true" />
 	</bean>
 
-	<bean id="simpleService" class="net.grosso.me.quartz.SimpleService">
+	<bean id="unLockService" class="net.grosso.me.quartz.UnLockService">
+		<property name="ibatisUserDao" ref="ibatisUserDao" />
+	</bean>
+
+	<bean id="ibatisUserDao" class="net.grosso.me.dao.IbatisUserDao">
 	</bean>
 
 	<bean id="entityManagerFactory"

@@ -42,5 +42,11 @@
   	
   	<delete id="deleteRoleByUserId" parameterClass="int">   
     delete from tbl_user_role where _user_id=#id#   
-  	</delete>  
+  	</delete> 
+  	
+  	<update id="unLockUser" >  
+	<![CDATA[  
+   update tbl_user set _lock='NON_LOCKED' where _lock='LOCKED'
+	]]>  
+	</update> 
 </sqlMap>

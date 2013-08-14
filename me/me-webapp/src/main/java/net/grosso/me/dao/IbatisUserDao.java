@@ -1,5 +1,6 @@
 package net.grosso.me.dao;
 
+import java.io.Serializable;
 import java.sql.SQLException;
 
 import net.grosso.me.domain.User;
@@ -11,7 +12,13 @@ import com.ibatis.sqlmap.client.SqlMapClient;
 
 
 
-public class IbatisUserDao {
+public class IbatisUserDao implements Serializable {
+
+	/**
+	 * serialVersionUID
+	 * long
+	 */
+	private static final long serialVersionUID = -1124222804301984736L;
 
 	public User update(User user) throws SQLException {
 
@@ -39,6 +46,16 @@ public class IbatisUserDao {
 			return 0;
 		}
 		return 1;
+	}
+
+	public void unLockUser() throws SQLException {
+
+		try {
+			SqlMapClient sqlMap = IbatisSqlMapClitentUtil.getSqlMapClient();
+			sqlMap.update("unLockUser");
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
 	}
 
 }
