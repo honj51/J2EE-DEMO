@@ -3,15 +3,16 @@
     <wb-module deploy-name="me-webapp">
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
         <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
-        <wb-resource deploy-path="/" source-path="/src/main/webapp"/>
-        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/test/java"/>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/me-util/me-util">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <dependent-module archiveName="me-util-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/me-util/me-util">
             <dependency-type>uses</dependency-type>
         </dependent-module>
-        <dependent-module deploy-path="/WEB-INF/lib" handle="module:/resource/me-framework/me-framework">
+        <dependent-module archiveName="me-framework-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/me-framework/me-framework">
             <dependency-type>uses</dependency-type>
         </dependent-module>
         <property name="context-root" value="me-webapp"/>
         <property name="java-output-path" value="/me-webapp/target/classes"/>
+        <property name="component.exclusion.patterns" value="WEB-INF/web.xml"/>
     </wb-module>
 </project-modules>
