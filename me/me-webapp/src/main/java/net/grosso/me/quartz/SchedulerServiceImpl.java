@@ -14,19 +14,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Service;
 
-@Service("schedulerService")
 public class SchedulerServiceImpl implements SchedulerService {
 
 	private Scheduler scheduler;
 	private JobDetail jobDetail;
 
-	@Autowired
-	public void setJobDetail(@Qualifier("jobDetail") JobDetail jobDetail) {
+
+	public void setJobDetail(JobDetail jobDetail) {
 		this.jobDetail = jobDetail;
 	}
 
-	@Autowired
-	public void setScheduler(@Qualifier("quartzScheduler") Scheduler scheduler) {
+
+	public void setScheduler(Scheduler scheduler) {
 		this.scheduler = scheduler;
 	}
 
