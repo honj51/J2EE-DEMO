@@ -390,15 +390,6 @@
 								<port>8080</port>
 								<maxIdleTime>60000</maxIdleTime>
 							</connector>
-							<!--
-							<connector implementation="org.mortbay.jetty.security.SslSocketConnector">
-								<port>8443</port>
-								<maxIdleTime>60000</maxIdleTime>
-								<keystore>C:/Documents and Settings/zhuoying/.keystore</keystore>
-								<password>yingzhor@163.com</password>
-								<keyPassword>yingzhor@163.com</keyPassword>
-							</connector>
-							-->
 						</connectors>
 					</configuration>
 					<executions>
