@@ -1,11 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
-	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:p="http://www.springframework.org/schema/p"
-	xmlns:c="http://www.springframework.org/schema/c"
-	xmlns:util="http://www.springframework.org/schema/util"
-	xmlns:aop="http://www.springframework.org/schema/aop"
-	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:c="http://www.springframework.org/schema/c" xmlns:util="http://www.springframework.org/schema/util"
+	xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
 	xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:jpa="http://www.springframework.org/schema/data/jpa"
 	xsi:schemaLocation="
@@ -17,14 +14,16 @@
 		http://www.springframework.org/schema/data/jpa http://www.springframework.org/schema/data/jpa/spring-jpa-1.1.xsd
 		http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-3.1.xsd">
 
-	<context:component-scan base-package="net.grosso.me" >
-		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller" />
+	<context:component-scan base-package="net.grosso.me">
+		<context:exclude-filter type="annotation"
+			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
 	<aop:aspectj-autoproxy />
-	
 
-	<bean id="constant" class="org.springframework.beans.factory.map.UnmodifiableMapFactoryBean">
+
+	<bean id="constant"
+		class="org.springframework.beans.factory.map.UnmodifiableMapFactoryBean">
 		<property name="locations">
 			<list>
 				<value>classpath:net/grosso/me/me.properties</value>
@@ -32,7 +31,8 @@
 		</property>
 	</bean>
 
-	<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+	<bean id="messageSource"
+		class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
 		<property name="cacheSeconds" value="120" />
 		<property name="defaultEncoding" value="UTF-8" />
 		<property name="basenames">
@@ -42,8 +42,8 @@
 			</list>
 		</property>
 	</bean>
-	
-		<!-- 属性文件读入 -->
+
+	<!-- 属性文件读入 -->
 	<bean id="propertyConfigurer"
 		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
 		<property name="locations">
@@ -66,44 +66,36 @@
 		<property name="acquireIncrement" value="${cpool.acquireIncrement}" />
 		<property name="maxIdleTime" value="${cpool.maxIdleTime}" />
 	</bean>
-		<bean name="quartzScheduler"
-			class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
-			<property name="dataSource">
-				<ref bean="dataSource" />
-			</property>
-			<property name="applicationContextSchedulerContextKey"
-				value="applicationContextKey" />
-			<property name="configLocation" value="classpath:quartz.properties" />
-		</bean>
 
-		<bean id="jobDetail" class="org.springframework.scheduling.quartz.JobDetailBean">
-			<property name="jobClass">
-				<value>net.grosso.me.quartz.MyQuartzJobBean</value>
-			</property>
+	<bean name="quartzScheduler"
+		class="org.springframework.scheduling.quartz.SchedulerFactoryBean">
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+		<property name="applicationContextSchedulerContextKey" value="applicationContextKey" />
+		<property name="configLocation" value="classpath:quartz.properties" />
+		<property name="triggers">
+			<list>
+				<ref bean="trigger" />
+			</list>
+		</property>
+	</bean>
+	<bean id="trigger" class="org.springframework.scheduling.quartz.CronTriggerBean">
+		<property name="jobDetail" ref="jobDetail" />
+		<property name="cronExpression" value="0/5 * * ? * * *" />
+	</bean>
+	<bean id="jobDetail"
+		class="frameworkx.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
+		<property name="targetObject" ref="simpleService" />
+		<property name="targetMethod" value="testMethod" />
+		<property name="shouldRecover" value="true" />
+	</bean>
 
-			<property name="jobDataAsMap">
-				<map>
-					<entry key="simpleService">
-						<ref bean="simpleService" />
-					</entry>
-					<entry key="simpleService2">
-						<ref bean="simpleService2" />
-					</entry>
-				</map>
-			</property>
+	<bean id="simpleService" class="net.grosso.me.quartz.SimpleService">
+	</bean>
 
-		</bean>
-
-		<bean id="schedulerService" class="net.grosso.me.quartz.SchedulerServiceImpl">
-			<property name="jobDetail">
-				<ref bean="jobDetail" />
-			</property>
-			<property name="scheduler">
-				<ref bean="quartzScheduler" />
-			</property>
-		</bean>		
-
-	<bean id="entityManagerFactory" class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
+	<bean id="entityManagerFactory"
+		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
 		<property name="dataSource" ref="dataSource" />
 		<property name="jpaVendorAdapter">
 			<bean class="org.springframework.orm.jpa.vendor.HibernateJpaVendorAdapter">
