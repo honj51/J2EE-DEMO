@@ -37,7 +37,6 @@
 		<property name="defaultEncoding" value="UTF-8" />
 		<property name="basenames">
 			<list>
-				<value>classpath:net/grosso/me/i18n/ui</value>
 				<value>classpath:net/grosso/me/i18n/jsr303</value>
 			</list>
 		</property>
