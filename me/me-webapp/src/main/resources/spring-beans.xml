@@ -97,6 +97,7 @@
 
 	<bean id="ibatisUserDao" class="net.grosso.me.dao.IbatisUserDao">
 	</bean>
+	
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
