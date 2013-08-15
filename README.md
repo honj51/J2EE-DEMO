@@ -20,8 +20,9 @@ name:admin password:admin
 Plan List
 
 
-Add Quartz Feature.
+Add Quartz（Dynamic Timer） Feature.
 
+Add UI Bootstrap Feature.
 
 Add CXF Feature.
 
