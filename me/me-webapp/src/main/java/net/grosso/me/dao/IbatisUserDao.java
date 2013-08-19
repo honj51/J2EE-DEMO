@@ -52,7 +52,9 @@ public class IbatisUserDao implements Serializable {
 
 		try {
 			SqlMapClient sqlMap = IbatisSqlMapClitentUtil.getSqlMapClient();
+			sqlMap.startTransaction();
 			sqlMap.update("unLockUser");
+			sqlMap.commitTransaction();
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
