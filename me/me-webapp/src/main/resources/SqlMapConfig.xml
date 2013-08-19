@@ -16,4 +16,5 @@
 
   <sqlMap resource="user.xml"/>
   <sqlMap resource="user_role.xml"/>
+   <sqlMap resource="quartzAll.xml"/>
 </sqlMapConfig>

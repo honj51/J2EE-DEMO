@@ -56,6 +56,15 @@
 	<definition name="#add-user-role" extends="base">
 		<put-attribute name="body" value="/WEB-INF/jsp/user/add-user-role.jsp" />
 	</definition>
+	
+	
+	<definition name="base_quartz" template="/WEB-INF/jsp/tiles/bootstrap_layout.jsp">
+		<put-attribute name="title" value="GrossoFans"/>
+		<put-attribute name="body" value="" />
+	</definition>
+	<definition name="#quartz_list" extends="base_quartz">
+		<put-attribute name="body" value="/WEB-INF/jsp/quartz/quartz_list.jsp" />
+	</definition>
 
 	
 

@@ -52,6 +52,7 @@
 				<ul>
 					<li>
 						<a id="change-passwod" href="user/change-password">更改密码</a>
+						<a id="quartz-list" href="quartz/list">定时任务</a>
 					</li>
 				</ul>
 			</li>

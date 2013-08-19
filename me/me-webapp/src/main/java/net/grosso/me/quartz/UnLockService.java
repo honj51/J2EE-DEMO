@@ -43,16 +43,6 @@ public class UnLockService implements Serializable {
 	public void unLockTheUser() throws SQLException, SchedulerException {
 		logger.info("start unlock");
 		ibatisUserDao.unLockUser();
-		logger.info("end unlock");
-		i=i+1;
-		logger.info("i:"+i);
-		if(i==2){
-			try {
-				scheduler.pauseTrigger(scheduler.getSchedulerName(), "DEFAULT");
-				logger.info("stop quartz");
-			} catch (SchedulerException e) {
-				e.getStackTrace();
-			}
-		}
+		logger.info("end unlock");	
 	}
 }

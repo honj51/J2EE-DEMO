@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+
+<!DOCTYPE sqlMap PUBLIC "-//ibatis.apache.org//DTD SQL Map 2.0//EN"
+   "http://ibatis.apache.org/dtd/sql-map-2.dtd">
+
+<sqlMap>
+	<resultMap id="Quartz" class="net.grosso.me.domain.QuartzTrigger">
+		<result property="triggerName" column="trigger_name" />
+		<result property="triggerGroup" column="trigger_group" />
+		<result property="jobName" column="job_name" />
+		<result property="jobGroup" column="job_group" />
+		<result property="triggerState" column="trigger_state" />
+		<result property="startTime"  column="start_time" />
+		<result property="endTime" column="end_time" />
+	</resultMap>
+	<select id="getAllQuartz" resultMap="Quartz">
+		SELECT * FROM qrtz_triggers
+	</select>	
+</sqlMap>

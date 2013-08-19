@@ -18,18 +18,25 @@ public class ReStartJob {
 
 	/**
 	 * Description goes here.
-	 *
+	 * 
 	 * @param args
 	 * 
-	 * @since 
+	 * @since
 	 */
 	private static final Logger logger = LoggerFactory.getLogger(ReStartJob.class);
-	
-	public static void main(String[] args) {
-		ApplicationContext springContext = new ClassPathXmlApplicationContext(new String[]{"classpath:spring-beans.xml"});  
-		Scheduler scheduler = (Scheduler)springContext.getBean("quartzScheduler"); 
+
+	public void updateTrigger(String triggerName, String triggerGroup, String action) {
+		ApplicationContext springContext = new ClassPathXmlApplicationContext(
+			new String[]{"classpath:spring-beans.xml"});
+		Scheduler scheduler = (Scheduler)springContext.getBean("quartzScheduler");
 		try {
-			scheduler.resumeTrigger("trigger","DEFAULT");
+			if ("resume".equals(action)) {
+				scheduler.resumeTrigger(triggerName, triggerGroup);
+			} else if ("pause".equals(action)) {
+				scheduler.pauseTrigger(triggerName, triggerGroup);
+			}else {
+				logger.info("no action.");
+			}
 		} catch (SchedulerException e) {
 			logger.error(e.getMessage());
 		}
