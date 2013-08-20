@@ -1,63 +1,41 @@
 package net.grosso.me.dao;
 
 import java.io.Serializable;
-import java.sql.SQLException;
 
 import net.grosso.me.domain.User;
-import net.grosso.me.ibatis.IbatisSqlMapClitentUtil;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
-
-import com.ibatis.sqlmap.client.SqlMapClient;
-
-
-
-public class IbatisUserDao implements Serializable {
+public class IbatisUserDao extends SqlMapClientDaoSupport implements Serializable {
 
 	/**
-	 * serialVersionUID
-	 * long
+	 * serialVersionUID long
 	 */
+	
+	private static final Logger logger = LoggerFactory.getLogger(IbatisUserDao.class);
 	private static final long serialVersionUID = -1124222804301984736L;
 
-	public User update(User user) throws SQLException {
-
-		try {
-			SqlMapClient sqlMap = IbatisSqlMapClitentUtil.getSqlMapClient();
-			sqlMap.update("updateUser", user);
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-
+	public User update(User user) {
+		getSqlMapClientTemplate().update("updateUser", user);
 		return user;
 	}
 
-	public int deleteUserAndRole(int userId) throws SQLException {
-
+	public int deleteUserAndRole(int userId) {
 		try {
-			SqlMapClient sqlMap = IbatisSqlMapClitentUtil.getSqlMapClient();
-			//delete user and related role.
-			sqlMap.startBatch();
-			sqlMap.delete("deleteRoleByUserId",userId);
-			sqlMap.delete("deleteUserById",userId);
-			sqlMap.executeBatch();
-		} catch (Exception e) {		
+			getSqlMapClientTemplate().delete("deleteRoleByUserId", userId);
+			getSqlMapClientTemplate().delete("deleteUserById", userId);
+		} catch (Exception e) {
 			e.printStackTrace();
 			return 0;
 		}
 		return 1;
 	}
 
-	public void unLockUser() throws SQLException {
-
-		try {
-			SqlMapClient sqlMap = IbatisSqlMapClitentUtil.getSqlMapClient();
-			sqlMap.startTransaction();
-			sqlMap.update("unLockUser");
-			sqlMap.commitTransaction();
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
+	public void unLockUser() {
+		getSqlMapClientTemplate().update("unLockUser");
+		logger.info("test quartz.");
 	}
 
 }

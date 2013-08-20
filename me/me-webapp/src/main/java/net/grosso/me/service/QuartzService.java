@@ -1,6 +1,5 @@
 package net.grosso.me.service;
 
-import java.sql.SQLException;
 import java.util.List;
 
 import net.grosso.me.domain.QuartzTrigger;
@@ -12,6 +11,6 @@ import org.springframework.transaction.annotation.Transactional;
 public interface QuartzService {
 
 	
-	public List<QuartzTrigger> findAll() throws SQLException;
+	public List<QuartzTrigger> findAll();
 
 }

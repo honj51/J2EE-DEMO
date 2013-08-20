@@ -31,7 +31,8 @@ public class UserServiceImpl implements UserService {
 	@Resource
 	private RoleDao roleDao;
 	
-	private IbatisUserDao ibatisUserDao =new IbatisUserDao();
+	@Resource
+	private IbatisUserDao ibatisUserDao;
 
 
 	@Override
@@ -61,13 +62,7 @@ public class UserServiceImpl implements UserService {
 
 	@Override
 	public int  deleteUserAndRole(int userId) {
-		int result=0;
-		try {
-			result=	ibatisUserDao.deleteUserAndRole(userId);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		return result;
+		return ibatisUserDao.deleteUserAndRole(userId);
 		
 	}
 

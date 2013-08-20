@@ -7,6 +7,8 @@
 
 package net.grosso.me.quartz;
 
+import net.grosso.me.util.SpringBeanUtil;
+
 import org.quartz.Scheduler;
 import org.quartz.SchedulerException;
 import org.slf4j.Logger;
@@ -26,9 +28,8 @@ public class ReStartJob {
 	private static final Logger logger = LoggerFactory.getLogger(ReStartJob.class);
 
 	public void updateTrigger(String triggerName, String triggerGroup, String action) {
-		ApplicationContext springContext = new ClassPathXmlApplicationContext(
-			new String[]{"classpath:spring-beans.xml"});
-		Scheduler scheduler = (Scheduler)springContext.getBean("quartzScheduler");
+		
+		Scheduler scheduler = (Scheduler)SpringBeanUtil.getBean("quartzScheduler");  
 		try {
 			if ("resume".equals(action)) {
 				scheduler.resumeTrigger(triggerName, triggerGroup);

@@ -1,20 +1,15 @@
 package net.grosso.me.dao;
 
-import java.io.Reader;
 import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.List;
 
 import net.grosso.me.domain.QuartzTrigger;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.orm.ibatis.support.SqlMapClientDaoSupport;
 
-import com.ibatis.common.resources.Resources;
-import com.ibatis.sqlmap.client.SqlMapClient;
-import com.ibatis.sqlmap.client.SqlMapClientBuilder;
-
-public class QuartzDao implements Serializable {
+public class QuartzDao extends SqlMapClientDaoSupport  implements Serializable {
 
 	/**
 	 * serialVersionUID long
@@ -23,19 +18,8 @@ public class QuartzDao implements Serializable {
 
 	private static final Logger logger = LoggerFactory.getLogger(QuartzDao.class);
 
-	public List<QuartzTrigger> findAll() throws SQLException {
-		List<QuartzTrigger> quartzTriggerList = null;
-		try {
-			
-			String resource = "SqlMapConfig.xml";
-			Reader reader = Resources.getResourceAsReader(resource);
-			SqlMapClient sqlMapClient = SqlMapClientBuilder.buildSqlMapClient(reader);
-
-			quartzTriggerList = sqlMapClient.queryForList("getAllQuartz");
-			logger.debug("quartzTriggerList.size()"+quartzTriggerList.size());
-		} catch (Exception e) {
-			logger.error(e.getMessage());
-		}
-		return quartzTriggerList;
+	public List<QuartzTrigger> findAll() {	
+		logger.info("start::findAll().");
+		return getSqlMapClientTemplate().queryForList("getAllQuartz");
 	}
 }

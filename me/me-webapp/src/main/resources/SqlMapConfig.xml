@@ -4,17 +4,15 @@
     "http://ibatis.apache.org/dtd/sql-map-config-2.dtd">
 
 <sqlMapConfig>
-<properties resource="jdbc.properties" />
-  <transactionManager type="JDBC">
-    <dataSource type="SIMPLE">
-      <property value="${jdbc.driverClassName}" name="JDBC.Driver"/>
-      <property value="${jdbc.url}" name="JDBC.ConnectionURL"/>
-      <property value="${jdbc.username}" name="JDBC.Username"/>
-      <property value="${jdbc.password}" name="JDBC.Password"/>
-    </dataSource>
-  </transactionManager>
+	<settings cacheModelsEnabled="true" 
+		enhancementEnabled="true"
+		lazyLoadingEnabled="true" 
+		maxRequests="32" 
+		maxSessions="10"
+		maxTransactions="5" 
+		useStatementNamespaces="false" />
 
-  <sqlMap resource="user.xml"/>
-  <sqlMap resource="user_role.xml"/>
-   <sqlMap resource="quartzAll.xml"/>
+	<sqlMap resource="user.xml" />
+	<sqlMap resource="user_role.xml" />
+	<sqlMap resource="quartzAll.xml" />
 </sqlMapConfig>

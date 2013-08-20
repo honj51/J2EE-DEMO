@@ -27,7 +27,8 @@ public class UserRoleServiceImpl implements UserRoleService {
 
 	private final Logger logger = LoggerFactory.getLogger(getClass());
 	
-	private IbatisUserRoleDao ibatisUserRoleDao =new IbatisUserRoleDao();
+	@Resource
+	private IbatisUserRoleDao ibatisUserRoleDao;
 
 	@Override
 	public List<UserRole> getAllUserRoles() throws SQLException {		

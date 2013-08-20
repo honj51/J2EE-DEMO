@@ -87,16 +87,12 @@
 		class="frameworkx.springframework.scheduling.quartz.MethodInvokingJobDetailFactoryBean">
 		<property name="targetObject" ref="unLockService" />
 		<property name="targetMethod" value="unLockTheUser" />
-		<property name="shouldRecover" value="true" />
+		<property name="shouldRecover" value="false" />
 	</bean>
 
 	<bean id="unLockService" class="net.grosso.me.quartz.UnLockService">
-		<property name="ibatisUserDao" ref="ibatisUserDao" />
 	</bean>
 
-	<bean id="ibatisUserDao" class="net.grosso.me.dao.IbatisUserDao">
-	</bean>
-	
 
 	<bean id="entityManagerFactory"
 		class="org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean">
@@ -120,5 +116,33 @@
 		entity-manager-factory-ref="entityManagerFactory"
 		transaction-manager-ref="transactionManager">
 	</jpa:repositories>
+
+	<bean id="sqlMapClient" class="org.springframework.orm.ibatis.SqlMapClientFactoryBean">
+		<property name="configLocation">
+			<value>classpath:SqlMapConfig.xml</value>
+		</property>
+		<property name="dataSource">
+			<ref bean="dataSource" />
+		</property>
+	</bean>
+
+	<bean id="quartzDao" class="net.grosso.me.dao.QuartzDao">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="ibatisUserDao" class="net.grosso.me.dao.IbatisUserDao">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	<bean id="ibatisUserRoleDao" class="net.grosso.me.dao.IbatisUserRoleDao">
+		<property name="sqlMapClient">
+			<ref bean="sqlMapClient" />
+		</property>
+	</bean>
+	
+
+
 
 </beans>
